@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
+
+body{overflow:hidden;background:black;color:white;}
+
+.section{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  transition:opacity 1s ease;
+}
+
+.hidden{opacity:0;pointer-events:none;}
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+}
+
+.year{
+  position:absolute;
+  top:20px;
+  font-size:28px;
+  z-index:2;
+}
+
+.content{
+  position:relative;
+  z-index:2;
+  max-width:85%;
+}
+
+.emoji{
+  font-size:50px;
+  cursor:pointer;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+
+.messageBox{
+  margin-top:20px;
+  font-size:22px;
+  min-height:100px;
+}
+
+.nextBtn{
+  margin-top:25px;
+  padding:10px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  display:none;
+}
+
+.rose{
+  position:absolute;
+  top:-40px;
+  font-size:22px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh);}
+}
+</style>
+</head>
+<body>
+
+<audio id="notif" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+
+<!-- ===== 7 STORY SECTIONS ===== -->
+
+<div class="section" id="sec1" style="background-image:url('https://raw.githubusercontent.com/ielts75079-rgb/tryy/9b3309ecf1ad0d1fb6d039a31ad4239d69aac1ee/562551148_17849450193570944_3530105530695856881_n.webp
+')">
+<div class="overlay"></div>
+<div class="year">2022</div>
+<div class="content">
+<div class="emoji" onclick="startMessage(1)">💌</div>
+<div class="messageBox" id="msg1"></div>
+<button class="nextBtn" id="next1" onclick="next(1)">Next</button>
+</div>
+</div>
+
+<div class="section hidden" id="sec2" style="background-image:url('https://raw.githubusercontent.com/ielts75079-rgb/tryy/9b3309ecf1ad0d1fb6d039a31ad4239d69aac1ee/524516637_17911873506173585_5040160680765112091_n.webp
+')">
+<div class="overlay"></div>
+<div class="year">2023</div>
+<div class="content">
+<div class="emoji" onclick="startMessage(2)">💌</div>
+<div class="messageBox" id="msg2"></div>
+<button class="nextBtn" id="next2" onclick="next(2)">Next</button>
+</div>
+</div>
+
+<div class="section hidden" id="sec3" style="background-image:url('https://raw.githubusercontent.com/ielts75079-rgb/tryy/9b3309ecf1ad0d1fb6d039a31ad4239d69aac1ee/WhatsApp%20Image%202026-02-09%20at%2014.03.20.jpeg')">
+<div class="overlay"></div>
+<div class="year">2024</div>
+<div class="content">
+<div class="emoji" onclick="startMessage(3)">💌</div>
+<div class="messageBox" id="msg3"></div>
+<button class="nextBtn" id="next3" onclick="next(3)">Next</button>
+</div>
+</div>
+
+<div class="section hidden" id="sec4" style="background-image:url('https://raw.githubusercontent.com/ielts75079-rgb/tryy/9b3309ecf1ad0d1fb6d039a31ad4239d69aac1ee/524516637_17911873506173585_5040160680765112091_n.webp
+')">
+<div class="overlay"></div>
+<div class="year">2024</div>
+<div class="content">
+<div class="emoji" onclick="startMessage(4)">💌</div>
+<div class="messageBox" id="msg4"></div>
+<button class="nextBtn" id="next4" onclick="next(4)">Next</button>
+</div>
+</div>
+
+<div class="section hidden" id="sec5" style="background-image:url('https://raw.githubusercontent.com/ielts75079-rgb/tryy/9b3309ecf1ad0d1fb6d039a31ad4239d69aac1ee/WhatsApp%20Image%202026-02-09%20at%2014.03.20.jpeg')">
+<div class="overlay"></div>
+<div class="year">2025</div>
+<div class="content">
+<div class="emoji" onclick="startMessage(5)">💌</div>
+<div class="messageBox" id="msg5"></div>
+<button class="nextBtn" id="next5" onclick="next(5)">Next</button>
+</div>
+</div>
+
+<div class="section hidden" id="sec6" style="background-image:url('image6.jpg')">
+<div class="overlay"></div>
+<div class="year">2026</div>
+<div class="content">
+<div class="emoji" onclick="startMessage(6)">💌</div>
+<div class="messageBox" id="msg6"></div>
+<button class="nextBtn" id="next6" onclick="next(6)">Next</button>
+</div>
+</div>
+
+<!-- ===== FINAL PAGE ===== -->
+
+<div class="section hidden" id="sec7" style="background-image:url('image7.jpg')">
+<div class="overlay"></div>
+<div class="year">Forever</div>
+<div class="content" id="finalContent">
+<div class="emoji" onclick="showFinal()">💌</div>
+<div class="messageBox" id="msg7"></div>
+<div id="buttons" style="display:none;">
+<button onclick="yesClick()">YES 💖</button>
+<button id="noBtn" onclick="noClick()">NO 🙄</button>
+</div>
+</div>
+</div>
+
+<script>
+
+const texts = {
+1:"The day I met you, I didn’t know my world was about to change.",
+2:"You smiled… and suddenly everything felt lighter.",
+3:"From strangers to partners in crime.",
+4:"When everything felt heavy, you felt like home.",
+5:"We changed. We grew. But we chose each other again.",
+6:"Today, I don’t just love you. I choose you.",
+};
+
+function startMessage(num){
+  const sound=document.getElementById("notif");
+  sound.play();
+
+  const words=texts[num].split(" ");
+  let i=0;
+
+  const box=document.getElementById("msg"+num);
+  box.innerHTML="";
+
+  const interval=setInterval(()=>{
+    if(i<words.length){
+      box.innerHTML+=words[i]+" ";
+      i++;
+    }else{
+      clearInterval(interval);
+      setTimeout(()=>{
+        document.getElementById("next"+num).style.display="inline-block";
+      },3000);
+    }
+  },400);
+}
+
+function next(num){
+  document.getElementById("sec"+num).classList.add("hidden");
+  document.getElementById("sec"+(num+1)).classList.remove("hidden");
+}
+
+function showFinal(){
+  document.getElementById("notif").play();
+  const text="After all these memories… Will you stay with me forever?";
+  const words=text.split(" ");
+  let i=0;
+  const box=document.getElementById("msg7");
+
+  const interval=setInterval(()=>{
+    if(i<words.length){
+      box.innerHTML+=words[i]+" ";
+      i++;
+    }else{
+      clearInterval(interval);
+      setTimeout(()=>{
+        document.getElementById("buttons").style.display="block";
+      },2000);
+    }
+  },400);
+}
+
+function noClick(){
+  alert("⚠️ You are in the wrong way.");
+  document.getElementById("noBtn").style.display="none";
+}
+
+function yesClick(){
+  document.getElementById("finalContent").innerHTML=
+  "<div class='messageBox'>You just made the best decision of your life 💖<br><br>I promise to protect your heart, annoy you forever, and stay beside you no matter what.<br><br>Forever starts now.</div>";
+}
+
+function createRose(){
+  const rose=document.createElement("div");
+  rose.classList.add("rose");
+  rose.innerHTML="🌹";
+  rose.style.left=Math.random()*100+"vw";
+  rose.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(rose);
+  setTimeout(()=>{rose.remove();},8000);
+}
+setInterval(createRose,500);
+
+</script>
+</body>
+</html>
